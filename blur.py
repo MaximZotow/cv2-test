@@ -11,7 +11,7 @@ def quick_cmd(cmd_str):
 video_name="cam.mp4"
 audio_name=os.path.splitext(video_name)[0]+".wav"
 output_video=os.path.splitext(video_name)[0]+"-edit"+os.path.splitext(video_name)[1]
-quick_cmd(f"ffmpeg -y -i {video_name} {audio_name}")
+quick_cmd(f"ffmpeg -y -loglevel quiet -i {video_name} {audio_name}")
 cap = cv2.VideoCapture(video_name)
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
 out = cv2.VideoWriter(output_video,fourcc ,(cap.get(cv2.CAP_PROP_FPS)),
@@ -34,5 +34,5 @@ cap.release()
 out.release()
 cv2.destroyAllWindows()
 
-quick_cmd(f"ffmpeg -y -i {output_video} -i {audio_name} -c:v copy -c:a aac -map 0:v:0 -map 1:a:0 output.mp4")
+quick_cmd(f"ffmpeg -loglevel quiet -y -i {output_video} -i {audio_name} -c:v copy -c:a aac -map 0:v:0 -map 1:a:0 output.mp4")
 
