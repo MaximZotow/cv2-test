@@ -1,8 +1,9 @@
+#написана только для проверки работы с одним кадром
 import cv2
 import os.path
 def bluring (image,x1,x2,y1,y2,power):
     image[y1:y2, x1:x2] = cv2.blur(image[y1:y2, x1:x2], (power, power), 0)
-
+#просмотр картинок и мгновенный вывод
 def viewImage(image, name_of_window):
     cv2.namedWindow(name_of_window, cv2.WINDOW_NORMAL)
     cv2.imshow(name_of_window, image)
