@@ -25,9 +25,8 @@ def blurimage(image):
 
 name="out1.png"
 image = cv2.imread(name, cv2.IMREAD_COLOR)
-viewImage(image,"image1")
 blurimage(image)
-viewImage(image,"image2")
+viewImage(image,"out1-edit")
 
 
 
